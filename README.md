@@ -32,4 +32,4 @@ The "*" represents the live cells, "." being the dead ones.
 
 ## Usage
 
-Run "kataGameOfLife.java".
+Run "kataGameOfLife.java", then follow console instructions.

@@ -3,7 +3,7 @@
 My version of the Game Of Life kata as available in http://codingdojo.org/kata/GameOfLife/, made with TDD using java.
 
 ## Details
-Your patterns should be in this format
+Your patterns should be in a text file in this format:
 ```
 20 20
 .*..................

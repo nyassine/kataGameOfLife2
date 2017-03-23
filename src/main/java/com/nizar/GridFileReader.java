@@ -26,37 +26,31 @@ public class GridFileReader {
             }
             else{
                 if (dimensionCount == 1 && charIndex > 0){
-                    System.out.println(Integer.parseInt(dimension));
                     row = Integer.parseInt(dimension);
                     dimensionCount++;
                     charIndex = 0;
                     dimension = "";
                 }
                 if (dimensionCount == 2 && charIndex > 0){
-                    System.out.println(Integer.parseInt(dimension));
                     col = Integer.parseInt(dimension);
                     break;
                 }
             }
         }
         if (charIndex > 0){
-            System.out.println(Integer.parseInt(dimension));
             col = Integer.parseInt(dimension);
         }
         Grid inputGrid = new Grid(row,col);
         int rowIndex = 0;
 
         while ((str = reader.readLine()) != null){
-            System.out.println("new line");
             int colIndex = 0;
             for (char c : str.toCharArray()){
                 if (c == '*'){
-                    System.out.println("* detected");
                     inputGrid.getGridCells()[rowIndex][colIndex] = new Cell(CellState.ALIVE);
                     colIndex++;
                 }
                 if (c == '.'){
-                    System.out.println(". detected");
                     inputGrid.getGridCells()[rowIndex][colIndex] = new Cell(CellState.DEAD);
                     colIndex++;
                 }

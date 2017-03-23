@@ -12,7 +12,7 @@ public class Game {
         System.out.println("Enter file location (if nothing is typed and you press enter, glider example will start)");
         Scanner scanner = new Scanner(System.in);
         String filename = scanner.nextLine();
-        if (filename.equals("")){
+        if (filename.equals("")) {
             filename = "glider.txt";
         }
 
@@ -21,11 +21,12 @@ public class Game {
         grid.print();
 
         //plays next move at every "enter"
-        System.out.println("press enter for next generation, s to stop");
-        if (scanner.hasNextLine()){
-            while (!scanner.nextLine().equals("s")){
+        System.out.println("press Enter for next generation, s to stop");
+        if (scanner.hasNextLine()) {
+            while (!scanner.nextLine().equals("s")) {
                 grid = grid.getNextGrid();
                 grid.print();
+                System.out.println("press Enter for next generation, s to stop");
             }
 
         }
@@ -36,16 +37,13 @@ public class Game {
         Grid grid = GridFileReader.readFromFile("glider.txt");
 
         grid.print();
-        for (int i = 0; i<200; i++){
-            try
-            {
+        for (int i = 0; i < 200; i++) {
+            try {
                 Thread.sleep(100);//1sec
                 grid = grid.getNextGrid();
                 grid.print();
 
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         }

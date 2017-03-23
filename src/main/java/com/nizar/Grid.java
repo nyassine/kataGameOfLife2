@@ -1,9 +1,5 @@
 package com.nizar;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-
 /**
  * Created by nyassine on 22/03/2017.
  */
@@ -35,7 +31,8 @@ public class Grid {
             for (int col = 0; col < gridCells[row].length; col++) {
                 gridCellStates[row][col] = gridCells[row][col].getCellState();
             }
-        };
+        }
+
         return gridCellStates;
     }
 
@@ -47,39 +44,33 @@ public class Grid {
         Grid nextGrid = new Grid(gridCells.length, gridCells[0].length);
         for (int row = 0; row < gridCells.length; row++) {
             for (int col = 0; col < gridCells[row].length; col++) {
-                int neighborNumber = getNeighborNumber(row,col);
+                int neighborNumber = getNeighborNumber(row, col);
                 nextGrid.gridCells[row][col] = gridCells[row][col].getNextGenerationCell(neighborNumber);
             }
-        };
+        }
+
         return nextGrid;
     }
 
     public int getNeighborNumber(int cellRow, int cellCol) {
         int neighborNumber = 0;
-//        System.out.println("row length " + gridCells.length);
-//        System.out.println("col length " + gridCells[0].length);
 
-        for (int row = (cellRow != 0)? cellRow - 1: 0; row <= ((cellRow != gridCells.length - 1)? (cellRow + 1) : gridCells.length - 1); row++) {
-            for (int col = (cellCol != 0)? cellCol - 1: 0; col <= ((cellCol != gridCells[row].length - 1)? (cellCol + 1) : gridCells[row].length - 1); col++) {
-//                System.out.println("Inside for. Row = " + row + "Col = " + col);
-                if (!(row == cellRow && col == cellCol) & gridCells[row][col].getCellState() == CellState.ALIVE){
+        for (int row = (cellRow != 0) ? cellRow - 1 : 0; row <= ((cellRow != gridCells.length - 1) ? (cellRow + 1) : gridCells.length - 1); row++) {
+            for (int col = (cellCol != 0) ? cellCol - 1 : 0; col <= ((cellCol != gridCells[row].length - 1) ? (cellCol + 1) : gridCells[row].length - 1); col++) {
+                if (!(row == cellRow && col == cellCol) & gridCells[row][col].getCellState() == CellState.ALIVE) {
                     neighborNumber++;
-//                    System.out.println(neighborNumber);
                 }
             }
-        };
+        }
 
         return neighborNumber;
     }
 
-    public void print()
-    {
+    public void print() {
         CellState[][] pattern = getStatePattern();
-        for(int i = 0; i < pattern.length; i++)
-        {
-            for(int j = 0; j < pattern[i].length; j++)
-            {
-                System.out.print( ( (pattern[i][j]==CellState.ALIVE)? "*" :"." )+" ");
+        for (int i = 0; i < pattern.length; i++) {
+            for (int j = 0; j < pattern[i].length; j++) {
+                System.out.print(((pattern[i][j] == CellState.ALIVE) ? "*" : ".") + " ");
             }
             System.out.println();
         }
@@ -87,11 +78,11 @@ public class Grid {
     }
 
 
-    public int getRows(){
+    public int getRows() {
         return gridCells.length;
     }
 
-    public int getCols(){
+    public int getCols() {
         return gridCells[0].length;
     }
 }

@@ -1,6 +1,5 @@
 package com.nizar;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,7 +12,7 @@ public class CellTest {
 
     //Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
     @Test
-    public void LiveCellWithZeroLiveNeighborsDies(){
+    public void LiveCellWithZeroLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(0);
@@ -22,7 +21,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithOneLiveNeighborsDies(){
+    public void LiveCellWithOneLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(1);
@@ -32,7 +31,7 @@ public class CellTest {
 
     //Any live cell with more than three live neighbours dies, as if by overcrowding
     @Test
-    public void LiveCellWithFourLiveNeighborsDies(){
+    public void LiveCellWithFourLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(4);
@@ -41,7 +40,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithFiveLiveNeighborsDies(){
+    public void LiveCellWithFiveLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(5);
@@ -50,7 +49,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithSixLiveNeighborsDies(){
+    public void LiveCellWithSixLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(6);
@@ -59,7 +58,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithSevenLiveNeighborsDies(){
+    public void LiveCellWithSevenLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(7);
@@ -68,7 +67,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithEightLiveNeighborsDies(){
+    public void LiveCellWithEightLiveNeighborsDies() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(8);
@@ -78,7 +77,7 @@ public class CellTest {
 
     //Any live cell with two or three live neighbours lives on to the next generation.
     @Test
-    public void LiveCellWithTwoLiveNeighborsLives(){
+    public void LiveCellWithTwoLiveNeighborsLives() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(2);
@@ -87,7 +86,7 @@ public class CellTest {
     }
 
     @Test
-    public void LiveCellWithThreeLiveNeighborsLives(){
+    public void LiveCellWithThreeLiveNeighborsLives() {
         Cell cell = new Cell(CellState.ALIVE);
 
         CellState actual = cell.getNextGenerationState(3);
@@ -97,7 +96,7 @@ public class CellTest {
 
     //Any dead cell with exactly three live neighbours becomes a live cell.
     @Test
-    public void DeadCellWithThreeLiveNeighborsLives(){
+    public void DeadCellWithThreeLiveNeighborsLives() {
         Cell cell = new Cell(CellState.DEAD);
 
         CellState actual = cell.getNextGenerationState(3);

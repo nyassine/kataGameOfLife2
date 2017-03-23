@@ -23,13 +23,11 @@ public class Cell {
     public Cell getNextGenerationCell(int neighborNumber) {
         Cell nextCell;
 
-        if (neighborNumber != 2 && neighborNumber != 3 && cellState == CellState.ALIVE){
+        if (neighborNumber != 2 && neighborNumber != 3 && cellState == CellState.ALIVE) {
             nextCell = new Cell(CellState.DEAD);
-        }
-        else if (neighborNumber == 3){
+        } else if (neighborNumber == 3) {
             nextCell = new Cell(CellState.ALIVE);
-        }
-        else {
+        } else {
             nextCell = new Cell(cellState);
         }
 

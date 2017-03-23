@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 /**
  * Created by nyassine on 23/03/2017.
@@ -21,17 +20,18 @@ public class GridFileReaderTest {
     public void readerShouldCreateGridWithRightDimensions() throws IOException {
         Grid grid = GridFileReader.readFromFile("file.txt");
 
-        assertEquals(2,grid.getRows());
-        assertEquals(4,grid.getCols());
+        assertEquals(2, grid.getRows());
+        assertEquals(4, grid.getCols());
     }
+
     //Reader can fill grid
     @Test
     public void readerFillsGridCreated() throws IOException {
         Grid grid = GridFileReader.readFromFile("file.txt");
 
         assertArrayEquals(new CellState[][]{
-                { O, X, O, X },
-                { X, O, O, O }
+                {O, X, O, X},
+                {X, O, O, O}
         }, grid.getStatePattern());
     }
 

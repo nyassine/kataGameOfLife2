@@ -1,5 +1,9 @@
 package com.nizar;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * Created by nyassine on 22/03/2017.
  */
@@ -14,7 +18,6 @@ public class Grid {
                 gridCells[row][col] = new Cell(gridCellStates[row][col]);
             }
         }
-
     }
 
     public Grid(int row, int column) {
@@ -81,5 +84,14 @@ public class Grid {
             System.out.println();
         }
         System.out.println();
+    }
+
+
+    public int getRows(){
+        return gridCells.length;
+    }
+
+    public int getCols(){
+        return gridCells[0].length;
     }
 }

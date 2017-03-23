@@ -1,40 +1,16 @@
 package com.nizar;
 
-/**
- * Hello world!
- *
- */
+
+import java.io.IOException;
+
 public class kataGameOfLife
 {
 
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws IOException {
         final CellState X = CellState.ALIVE;
         final CellState O = CellState.DEAD;
 
-        Grid grid = new Grid(new CellState[][]{
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, X, O, X, O, X, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, X, O, O, O, X, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, X, O, O, O, X, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, X, O, O, O, X, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, X, O, X, O, X, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-                { O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O, O },
-
-        });
+        Grid grid = GridFileReader.readFromFile("glider.txt");
 
         grid.print();
         for (int i = 0; i<200; i++){
@@ -51,10 +27,6 @@ public class kataGameOfLife
             }
         }
 
-
-
     }
-
-
 
 }

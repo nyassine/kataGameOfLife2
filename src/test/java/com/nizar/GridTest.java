@@ -15,9 +15,6 @@ public class GridTest {
     public static final CellState O = CellState.DEAD;
 
 
-
-
-
     //Grid should return number of neighbors
     @Test
     public void gridShouldReturnNoNeighborsInOneCellGrid(){
@@ -84,13 +81,4 @@ public class GridTest {
         }, nextGrid.getStatePattern());
     }
 
-    //Grid should read from text file
-//    @Test
-//    //TO DO
-//    public void gridShouldReadFromTextFile() throws IOException {
-//        Grid grid = GridFileReader.read("C:/GameOfLife/file.txt");
-//
-//
-//        fail();
-//    }
 }
